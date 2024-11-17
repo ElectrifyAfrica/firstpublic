@@ -134,6 +134,9 @@ spec:
             - --node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/cluster-irsa # Update cluster
             - --balance-similar-node-groups
             - --skip-nodes-with-system-pods=false
+          env: 
+            - name: AWS_REGION
+              value: us-west-1  
           volumeMounts:
             - name: ssl-certs
               mountPath: /etc/ssl/certs/ca-certificates.crt
