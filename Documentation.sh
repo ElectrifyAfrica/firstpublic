@@ -32,5 +32,13 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 sudo apt update && sudo apt install terraform -y
 
 
+#pull terraform code from git hub 
+
+git init
+
+git pull 
+
+
+aws eks --region us-east-1 update-kubeconfig --name demo
 
 

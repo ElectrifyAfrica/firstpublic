@@ -31,6 +31,12 @@ resource "aws_iam_role_policy_attachment" "demo-AmazonEKSClusterPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
+# Attach AmazonEC2FullAccess or a custom policy for EBS volume management
+resource "aws_iam_role_policy_attachment" "demo-EBSPolicy" {
+  role       = aws_iam_role.demo.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"  # Full access to EC2 and EBS resources
+}
+
 # bare minimum requirement of eks
 
 resource "aws_eks_cluster" "demo" {
@@ -46,5 +52,9 @@ resource "aws_eks_cluster" "demo" {
     ]
   }
 
-  depends_on = [aws_iam_role_policy_attachment.demo-AmazonEKSClusterPolicy]
+  depends_on = [
+    aws_iam_role_policy_attachment.demo-AmazonEKSClusterPolicy,
+    aws_iam_role_policy_attachment.demo-EBSPolicy
+  ]
+
 }
