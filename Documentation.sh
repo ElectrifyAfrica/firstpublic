@@ -12,7 +12,7 @@ sudo usermod -s /bin/bash eksadmin
 sudo su - eksadmin
 
 #Step2
-#Install aws sli and terraform 
+#Install aws cli and terraform 
 
 #!/bin/bash
 sudo apt update -y
