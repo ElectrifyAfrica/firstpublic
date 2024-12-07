@@ -8,6 +8,8 @@ sudo -i
 #now run this script as a root user
 
 #!/bin/bash
+sudo apt update && sudo apt upgrade -y
+
 sudo usermod -aG docker ubuntu
 
 sudo apt-mark hold kubelet kubeadm kubectl
