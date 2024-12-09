@@ -45,8 +45,8 @@ resource "aws_eks_node_group" "private-nodes" {
     aws_subnet.private-us-east-1b.id
   ]
 
-  capacity_type  = "ON_DEMAND"
-  instance_types = ["t2.medium"]
+  capacity_type  = "SPOT"
+  instance_types = ["t3a.medium"]
 
   scaling_config {
     desired_size = 2
